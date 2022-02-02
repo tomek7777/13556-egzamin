@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lista>
+
+@{
+    ViewData["Title"] = "Lista uczniów";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.NrIndeksu)</th>
+                    <th>@Html.DisplayNameFor(model => model.Ocena)</th>
+                    <th>@Html.DisplayNameFor(model => model.Przedmiot)</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.NrIndeksu)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Ocena)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Przedmiot)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
+    <a asp-controller="Clients" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Add New
+    </a>
+</div>
