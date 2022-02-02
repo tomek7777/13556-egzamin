@@ -1,49 +1,53 @@
-﻿@model IEnumerable<Lista>
+﻿@model IEnumerable<_13556_egzamin.Models.Lista>
 
 @{
-    ViewData["Title"] = "Lista uczniów";
+    ViewData["Title"] = "Index";
 }
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
+<h1>Index</h1>
 
-
-        <table class="table">
-            <thead>
-                <tr class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.NrIndeksu)</th>
-                    <th>@Html.DisplayNameFor(model => model.Ocena)</th>
-                    <th>@Html.DisplayNameFor(model => model.Przedmiot)</th>
-                    <th>Actions</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-
-                        <td class="text-center">
-                            @Html.DisplayFor(modelItem => item.NrIndeksu)
-                        </td>
-                        <td class="text-center">
-                            @Html.DisplayFor(modelItem => item.Ocena)
-                        </td>
-                        <td class="text-center">
-                            @Html.DisplayFor(modelItem => item.Przedmiot)
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-
-        </table>
-
-    </div>
-</div>
-
-<div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
-    <a asp-controller="Clients" asp-action="Create" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Add New
-    </a>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrIndeksu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ocena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Przedmiot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrIndeksu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ocena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Przedmiot)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
